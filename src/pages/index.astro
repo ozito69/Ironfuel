@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Why from '../components/Why.astro';
+import Guides from '../components/Guides.astro';
+import Learn from '../components/Learn.astro';
+import TelegramSection from '../components/TelegramSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqs } from '../data/faq';
+import { brand, links, SITE_URL } from '../data/site';
+import { heroImages } from '../lib/hero';
+const hero = await heroImages();
+
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'Organization', name: 'IRONFUEL', url: SITE_URL, description: brand.description, sameAs: [links.telegram, links.whopStore] },
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'IRONFUEL', url: SITE_URL, inLanguage: 'en' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base jsonLd={jsonLd}>
+  <Fragment slot="head">
+    <link rel="preload" as="image" type="image/avif" media="(min-width: 980px)" imagesrcset={hero.dAvif.srcset} imagesizes="55vw" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/avif" media="(max-width: 979px)" imagesrcset={hero.mAvif.srcset} imagesizes="100vw" fetchpriority="high" />
+  </Fragment>
+  <Hero />
+  <About />
+  <Why />
+  <Guides />
+  <Learn />
+  <TelegramSection />
+  <FaqSection />
+</Base>

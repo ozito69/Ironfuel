@@ -1,0 +1,33 @@
+---
+import { heroImages } from '../lib/hero';
+import TechOverlay from './TechOverlay.astro';
+import TelegramIcon from './TelegramIcon.astro';
+import { links } from '../data/site';
+const img = await heroImages();
+---
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__media" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 980px)" type="image/avif" srcset={img.dAvif.srcset} sizes="55vw" />
+      <source media="(min-width: 980px)" type="image/webp" srcset={img.dWebp.srcset} sizes="55vw" />
+      <source type="image/avif" srcset={img.mAvif.srcset} sizes="100vw" />
+      <img src={img.mWebp.fallback} srcset={img.mWebp.srcset} sizes="100vw" alt="" width="720" height="680" fetchpriority="high" decoding="async" loading="eager" />
+    </picture>
+    <TechOverlay />
+  </div>
+  <div class="container">
+    <div class="hero__content">
+      <p class="eyebrow">Evidence-aware fitness education</p>
+      <h1 id="hero-title"><span>Train smarter.</span><span class="accent">Build stronger.</span></h1>
+      <p class="lede">Evidence-based training, nutrition, and recovery education designed to help you understand your body and make better progress.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--xl" href={links.telegram} target="_blank" rel="noopener noreferrer"><TelegramIcon />Join Our Telegram Channel</a>
+        <a class="btn btn--ghost btn--xl" href={links.whopStore} target="_blank" rel="noopener noreferrer" data-utm>Explore Our Guides</a>
+      </div>
+      <p class="hero__micro"><strong>Telegram is free and public.</strong> The IRONFUEL guides are sold separately on Whop.</p>
+    </div>
+  </div>
+</section>
+<div class="strip">
+  <p class="container strip__inner"><span>Train smarter</span><span class="strip__sep" aria-hidden="true">/</span><span>Eat better</span><span class="strip__sep" aria-hidden="true">/</span><span>Build stronger</span></p>
+</div>

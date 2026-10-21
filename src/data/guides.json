@@ -1,0 +1,110 @@
+[
+  {
+    "number": 1,
+    "title": "Muscle Growth Explained",
+    "subtitle": "A Practical Guide to Understanding How Muscle Growth Works",
+    "blurb": "What \"muscle growth\" really means, how the stimulus-recovery-adaptation cycle works, and why results differ from one lifter to the next.",
+    "group": "foundations",
+    "cover": "guide-01.jpg",
+    "slug": "muscle-growth-explained"
+  },
+  {
+    "number": 2,
+    "title": "Your Muscle-Building Starting Point",
+    "subtitle": "A Practical Guide to Setting a Baseline, a Direction and a Realistic 12 Weeks",
+    "blurb": "How to complete a safety check before you begin, decide whether you are a beginner or intermediate, and define what building muscle means for you.",
+    "group": "foundations",
+    "cover": "guide-02.jpg",
+    "slug": "your-muscle-buildingstarting-point"
+  },
+  {
+    "number": 3,
+    "title": "Effective Training Principles",
+    "subtitle": "A Practical Guide to Progressive Overload, Effort, Volume, Load and Frequency",
+    "blurb": "How progressive overload, training effort, weekly volume, load and repetition range, frequency and rest between sets affect muscle-building training.",
+    "group": "training",
+    "cover": "guide-03.jpg",
+    "slug": "effective-training-principles"
+  },
+  {
+    "number": 4,
+    "title": "Exercise Selection & Technique",
+    "subtitle": "A Practical Guide to Choosing Exercises and Performing Them Well",
+    "blurb": "How to choose exercises by movement pattern, and how to compare compound and isolation lifts, machines and free weights, and range of motion.",
+    "group": "training",
+    "cover": "guide-04.jpg",
+    "slug": "exercise-selection-technique"
+  },
+  {
+    "number": 5,
+    "title": "Build Your Training Program",
+    "subtitle": "A Step-by-Step Guide to Structuring Your Training, Managing Volume and Progressing Over Time",
+    "blurb": "How to choose a training split, decide how many days to train, and build a balanced training week with the IRONFUEL Program Builder.",
+    "group": "training",
+    "cover": "guide-05.jpg",
+    "slug": "build-your-training-program"
+  },
+  {
+    "number": 6,
+    "title": "Calories for Muscle Growth",
+    "subtitle": "A Practical Guide to Energy Balance, Estimating Your Needs and Adjusting for Real Results",
+    "blurb": "How energy balance works, whether you need a calorie surplus to build muscle, how recomposition fits, and how to choose an energy direction.",
+    "group": "nutrition",
+    "cover": "guide-06.jpg",
+    "slug": "calories-for-muscle-growth"
+  },
+  {
+    "number": 7,
+    "title": "Protein, Carbs & Fats Made Simple",
+    "subtitle": "A Practical Guide to Macronutrients and Setting Your Starting Targets",
+    "blurb": "Where macros fit, why protein is the priority, how much protein to consider, how to spread it across meals, and the roles of carbohydrates and fat.",
+    "group": "nutrition",
+    "cover": "guide-07.jpg",
+    "slug": "protein-carbs-fats-made-simple"
+  },
+  {
+    "number": 8,
+    "title": "Meal Planning for Muscle Growth",
+    "subtitle": "A Practical, Flexible Guide to Building Meals That Support Your Training and Goals",
+    "blurb": "Three ways to manage food, how to track with an app or a kitchen scale (both optional), and how to read labels and raw versus cooked weights.",
+    "group": "nutrition",
+    "cover": "guide-08.jpg",
+    "slug": "meal-planning-for-muscle-growth"
+  },
+  {
+    "number": 9,
+    "title": "The IRONFUEL Supplement Guide",
+    "subtitle": "What works. What might. What's marketing.",
+    "blurb": "Whether you need supplements at all, and how to sort them into what works, what might help in some situations, and what is mostly marketing.",
+    "group": "recovery",
+    "cover": "guide-09.jpg",
+    "slug": "the-ironfuel-supplement-guide"
+  },
+  {
+    "number": 10,
+    "title": "The Recovery Guide",
+    "subtitle": "Sleep, stress, soreness and injury basics",
+    "blurb": "How sleep, stress, soreness, rest days and fatigue connect to training, and what recovery is and is not.",
+    "group": "recovery",
+    "cover": "guide-10.jpg",
+    "slug": "therecovery-guide"
+  },
+  {
+    "number": 11,
+    "title": "The Progress Tracking Playbook",
+    "subtitle": "Tracking progress, adjusting and troubleshooting",
+    "blurb": "How to track training, bodyweight, measurements and progress photos, and how to read bodyweight as a trend instead of a single number.",
+    "group": "plan",
+    "cover": "guide-11.jpg",
+    "slug": null
+  },
+  {
+    "number": 12,
+    "title": "The 12-Week IRONFUEL Blueprint",
+    "subtitle": "Train. Track. Review. Adjust only when needed. Repeat.",
+    "blurb": "How to bring your training, nutrition, recovery and tracking tools into one clear 12-week sequence, from Week 1 setup to the Week 12 review.",
+    "group": "plan",
+    "cover": "guide-12.jpg",
+    "slug": null
+  }
+]

@@ -1,0 +1,53 @@
+---
+import Wordmark from './Wordmark.astro';
+import TelegramIcon from './TelegramIcon.astro';
+import { links } from '../data/site';
+const nav = [
+  { href: '#about', label: 'About' },
+  { href: '#guides', label: 'Educational Guides' },
+  { href: '#why', label: 'Why IRONFUEL' },
+  { href: '#telegram', label: 'Telegram Community' },
+];
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <Wordmark href="#top" />
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        {nav.map((n) => <li><a class="nav__link" href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--primary header-cta header-cta--tg" href={links.telegram} target="_blank" rel="noopener noreferrer"><TelegramIcon />Join</a>
+      <a class="btn btn--ghost header-cta header-cta--whop" href={links.whopStore} target="_blank" rel="noopener noreferrer" data-utm>Explore Guides</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <div class="container">
+      <ul class="mobile-menu__list">
+        {nav.map((n) => <li><a class="mobile-menu__link" href={n.href} data-menu-link>{n.label}</a></li>)}
+      </ul>
+      <a class="btn btn--ghost" href={links.whopStore} target="_blank" rel="noopener noreferrer" data-utm>Explore Guides</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    const set = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      menu.hidden = !open;
+    };
+    toggle.addEventListener('click', () => set(menu.hidden));
+    menu.querySelectorAll('[data-menu-link]').forEach((a) => a.addEventListener('click', () => set(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) { set(false); toggle.focus(); }
+    });
+    window.matchMedia('(min-width: 980px)').addEventListener('change', (m) => { if (m.matches) set(false); });
+  }
+</script>

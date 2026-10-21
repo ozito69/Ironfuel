@@ -1,0 +1,43 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { operator, links, analytics } from '../data/site';
+const usesAnalytics = Boolean(analytics.cloudflareWebAnalyticsToken);
+---
+<Legal title="Privacy Policy" path="/privacy" description="How the IRONFUEL website handles information.">
+  <p>This Privacy Policy explains how information is handled on this website. It covers the website only. It does not cover Telegram or Whop, which are separate services run by other companies.</p>
+
+  <h2>1. Who we are</h2>
+  <p>This website is operated by {operator.legalEntity}. You can contact us at <a href={`mailto:${operator.contactEmail}`}>{operator.contactEmail}</a>.</p>
+
+  <h2>2. What this website collects</h2>
+  <ul>
+    <li>This website is an information site. It has no user accounts, no comment sections and no contact or sign-up forms, so it does not collect personal information that you type in.</li>
+    <li><strong>Technical data.</strong> The website is hosted on Cloudflare. Cloudflare may process technical data such as IP address, browser type and the pages requested, in order to deliver the site and keep it secure. Cloudflare's own privacy policy applies to that processing.</li>
+    {usesAnalytics ? (
+      <li><strong>Analytics.</strong> We use Cloudflare Web Analytics to understand how many people visit and which pages they view. Cloudflare states that this service does not use cookies or local storage and does not fingerprint visitors. We use the aggregated results only to improve the website.</li>
+    ) : (
+      <li><strong>Analytics.</strong> This website does not currently use analytics.</li>
+    )}
+  </ul>
+
+  <h2>3. Cookies</h2>
+  <p>This website does not set cookies.</p>
+
+  <h2>4. Links to other services</h2>
+  <p>This website links to the IRONFUEL Telegram channel (<a href={links.telegram} rel="noopener noreferrer">t.me/ironfuel0</a>) and to the IRONFUEL store on Whop (<a href={links.whopStore} rel="noopener noreferrer">whop.com</a>). When you follow a link you leave this website, and the other service's own privacy policy applies. Purchases are made on Whop, not on this website, and this website does not collect payment details.</p>
+
+  <h2>5. How information is used</h2>
+  <p>Technical and analytics information helps run and secure the website and understand how visitors find it. This website does not sell personal information.</p>
+
+  <h2>6. Your rights (United States)</h2>
+  <p>Depending on the U.S. state where you live (for example, California), you may have rights to request access to, correction of, or deletion of personal information held about you. This website does not collect personal information directly from visitors beyond the technical data described above. To make a request, email <a href={`mailto:${operator.contactEmail}`}>{operator.contactEmail}</a>.</p>
+
+  <h2>7. Children</h2>
+  <p>This website is not directed to children under 13, and we do not knowingly collect personal information from children under 13.</p>
+
+  <h2>8. Changes to this policy</h2>
+  <p>If this policy changes, the updated version will be published on this page with a new date.</p>
+
+  <h2>9. Contact</h2>
+  <p>Questions about this policy: <a href={`mailto:${operator.contactEmail}`}>{operator.contactEmail}</a>.</p>
+</Legal>

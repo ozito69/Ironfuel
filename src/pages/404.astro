@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import TelegramIcon from '../components/TelegramIcon.astro';
+import { links } from '../data/site';
+---
+<Base title="Page not found | IRONFUEL" path="/404">
+  <section class="legal container">
+    <p class="eyebrow">Error 404</p>
+    <h1>Page not found</h1>
+    <p class="lede">That page does not exist. Head back to the start, join the Telegram channel, or browse the guides.</p>
+    <div class="btn-row btn-row--spaced">
+      <a class="btn btn--primary" href="/">Back to IRONFUEL</a>
+      <a class="btn btn--ghost" href={links.telegram} target="_blank" rel="noopener noreferrer"><TelegramIcon />Join Telegram</a>
+    </div>
+  </section>
+</Base>

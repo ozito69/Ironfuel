@@ -1,0 +1,75 @@
+---
+import { Picture } from 'astro:assets';
+import guides from '../data/guides.json';
+import { links } from '../data/site';
+
+const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', { eager: true });
+const cover = (file: string) => covers[`../assets/covers/${file}`].default;
+
+const groups = [
+  { id: 'foundations', title: 'Foundations', range: 'Guides 01 to 02' },
+  { id: 'training', title: 'Training', range: 'Guides 03 to 05' },
+  { id: 'nutrition', title: 'Nutrition', range: 'Guides 06 to 08' },
+  { id: 'recovery', title: 'Supplements and recovery', range: 'Guides 09 to 10' },
+  { id: 'plan', title: 'Tracking and your plan', range: 'Guides 11 to 12' },
+];
+// Individual links are used only where the live Whop page was verified; otherwise the main store link.
+const href = (g: (typeof guides)[number]) => (g.slug ? `${links.whopStore}${g.slug}/` : links.whopStore);
+---
+<section class="section" id="guides" aria-labelledby="guides-title">
+  <div class="container">
+    <div class="guides__intro reveal">
+      <p class="eyebrow">Educational guides</p>
+      <h2 class="h2" id="guides-title">Twelve guides. <em>One system.</em></h2>
+      <p class="lede">Each guide covers one part of building muscle, from how growth works through training and nutrition to a structured 12-week plan.</p>
+    </div>
+
+    {groups.map((grp) => {
+      const items = guides.filter((g) => g.group === grp.id);
+      return (
+      <div class="group">
+        <div class="group__head"><h3>{grp.title}</h3><span>{grp.range}</span></div>
+        <ul class:list={['guide-grid', `guide-grid--${items.length}`]}>
+          {items.map((g) => (
+            <li>
+              <article class="guide reveal" id={`guide-${String(g.number).padStart(2, '0')}`}>
+                <div class="guide__cover">
+                  <Picture
+                    src={cover(g.cover)}
+                    alt={`Cover of ${g.title}, an IRONFUEL guide`}
+                    formats={['avif']} fallbackFormat="webp"
+                    widths={[240, 360, 480]}
+                    sizes="(min-width: 1020px) 340px, (min-width: 640px) 160px, 45vw"
+                    loading="lazy"
+                    decoding="async"
+                    width={900}
+                    height={1165}
+                    quality={78}
+                  />
+                </div>
+                <div class="guide__body">
+                  <span class="guide__num" aria-hidden="true">Guide {String(g.number).padStart(2, '0')}</span>
+                  <h4 class="guide__title">{g.title}</h4>
+                  <p class="guide__sub">{g.subtitle}</p>
+                  <p class="guide__blurb">{g.blurb}</p>
+                  <details class="guide__more">
+                    <summary>What's inside</summary>
+                    <p class="guide__sub-m">{g.subtitle}</p>
+                    <p>{g.blurb}</p>
+                  </details>
+                  <a class="guide__link" href={href(g)} target="_blank" rel="noopener noreferrer" data-utm>
+                    <span>{g.slug ? 'View on Whop' : 'See in the Whop store'}<span class="visually-hidden">: {g.title}</span></span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+      );
+    })}
+
+    <p class="guides__note">The guides are sold on Whop. Price, what is included and delivery details are shown on each Whop page before you buy.</p>
+  </div>
+</section>

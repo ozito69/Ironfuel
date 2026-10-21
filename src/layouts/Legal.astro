@@ -1,0 +1,20 @@
+---
+import Base from './Base.astro';
+import Todo from '../components/Todo.astro';
+import { operator, IS_RELEASE } from '../data/site';
+interface Props { title: string; path: string; description: string }
+const { title, path, description } = Astro.props;
+---
+<Base title={`${title} | IRONFUEL`} description={description} path={path}>
+  <article class="legal container">
+    {!IS_RELEASE && (
+      <div class="draft-banner" role="note">
+        <strong>Draft: not for publication</strong>
+        <p>This page is an unreviewed draft. Highlighted markers show details that are missing or unverified. It has not been checked by a lawyer, and it cannot be published until every marker is resolved. A release build will refuse to build while any marker remains.</p>
+      </div>
+    )}
+    <h1>{title}</h1>
+    <p class="legal__meta">Last updated: {operator.policiesLastUpdated ?? <Todo what="date of last update" />}</p>
+    <slot />
+  </article>
+</Base>

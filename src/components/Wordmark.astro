@@ -1,0 +1,10 @@
+---
+// Temporary wordmark based on the approved cover typography (red bar + widely tracked Barlow Condensed).
+// Replace with the official logo file when supplied.
+interface Props { large?: boolean; href?: string }
+const { large = false, href = '/' } = Astro.props;
+---
+<a class:list={['wordmark', large && 'wordmark--lg']} href={href} aria-label="IRONFUEL, home">
+  <span class="wordmark__bar" aria-hidden="true"></span>
+  <span class="wordmark__text">IRONFUEL</span>
+</a>

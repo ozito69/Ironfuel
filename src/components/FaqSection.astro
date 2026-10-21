@@ -1,0 +1,20 @@
+---
+import { faqs } from '../data/faq';
+---
+<section class="section faq" id="faq" aria-labelledby="faq-title">
+  <div class="container faq__layout">
+    <div class="faq__head">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h2" id="faq-title">Questions, <em>answered.</em></h2>
+      <p class="lede">Straight answers about the guides, the Telegram channel and how buying works.</p>
+    </div>
+    <div class="faq__list">
+      {faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <div class="faq__a"><p>{f.a}</p></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

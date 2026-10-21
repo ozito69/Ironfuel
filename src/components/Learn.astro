@@ -1,0 +1,36 @@
+---
+import { Picture } from 'astro:assets';
+import { topics } from '../data/topics';
+import guides from '../data/guides.json';
+
+const arts = import.meta.glob<{ default: ImageMetadata }>('../assets/art/topic-*.jpg', { eager: true });
+const art = (file: string) => arts[`../assets/art/${file}`].default;
+const num = (n: number) => String(n).padStart(2, '0');
+const title = (n: number) => guides.find((g) => g.number === n)!.title;
+---
+<section class="section section--deep" id="learn" aria-labelledby="learn-title">
+  <div class="container">
+    <p class="eyebrow">What you'll learn</p>
+    <h2 class="h2" id="learn-title">Eight topics. <em>Clear answers.</em></h2>
+    <p class="lede">The guides cover the core areas of building muscle. Each topic points to the guides that go deeper.</p>
+    <ul class="learn__grid">
+      {topics.map((t) => (
+        <li>
+          <article class="topic reveal" data-topic={t.id}>
+            <div class="topic__art" aria-hidden="true">
+              <Picture src={art(t.art)} alt="" formats={['avif']} fallbackFormat="webp" widths={[320, 480, 720]} sizes="(min-width: 1100px) 300px, (min-width: 700px) 22vw, 38vw" loading="lazy" decoding="async" quality={72} />
+            </div>
+            <div class="topic__body">
+              <span class="topic__num">{t.number}</span>
+              <h3>{t.title}</h3>
+              <p>{t.text}</p>
+              <div class="chips">
+                {t.guides.map((g) => (<a class="chip" href={`#guide-${num(g)}`} aria-label={`Go to guide ${num(g)}: ${title(g)}`}>Guide {num(g)}</a>))}
+              </div>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

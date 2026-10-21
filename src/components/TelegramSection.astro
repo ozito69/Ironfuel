@@ -1,0 +1,44 @@
+---
+import { Picture } from 'astro:assets';
+import cover1 from '../assets/covers/guide-01.jpg';
+import TelegramIcon from './TelegramIcon.astro';
+import { links } from '../data/site';
+---
+<section class="section telegram" id="telegram" aria-labelledby="telegram-title">
+  <div class="container telegram__grid">
+    <div class="reveal">
+      <p class="eyebrow">Free public educational channel</p>
+      <h2 id="telegram-title">Join the<br /><span class="accent">IRONFUEL</span> community</h2>
+      <p class="lede">The IRONFUEL Telegram channel is where the education happens every day: practical training tips, scientific infographics and updates about IRONFUEL guides.</p>
+      <ul class="ticks">
+        <li>Practical training tips you can use in your next session</li>
+        <li>Scientific infographics that make research easier to read</li>
+        <li>Updates about new and existing IRONFUEL guides</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--xl" href={links.telegram} target="_blank" rel="noopener noreferrer"><TelegramIcon />Join the IRONFUEL Community</a>
+      </div>
+      <p class="telegram__links">Free to follow. Opens in Telegram. Prefer to look first? <a href={links.telegramPreview} target="_blank" rel="noopener noreferrer">Preview the channel in your browser</a>.</p>
+    </div>
+
+    <figure class="phone reveal" aria-label="Illustration of an IRONFUEL Telegram channel post">
+      <div class="phone__screen">
+        <div class="chan__head">
+          <span class="chan__avatar" aria-hidden="true"><i></i></span>
+          <div><div class="chan__title">IRONFUEL</div><div class="chan__sub">Free public channel</div></div>
+        </div>
+        <div class="chan__post">
+          <Picture src={cover1} alt="" formats={['avif']} fallbackFormat="webp" widths={[320, 480]} sizes="340px" loading="lazy" decoding="async" quality={74} />
+          <div class="chan__caption">
+            <p><b>Sore muscles = more growth? 🤔 Not quite.</b></p>
+            <p>Soreness tells you your body was challenged. It doesn't tell you how much muscle you actually built.</p>
+            <p>A better set of signals to track:</p>
+            <ul><li>✅ Your performance over time</li><li>✅ Consistent, appropriate effort</li><li>✅ Gradual progression</li><li>✅ Quality recovery</li></ul>
+            <p><b>Takeaway:</b> Leaving every session feeling destroyed isn't the goal. Progress is.</p>
+          </div>
+          <div class="chan__badge">Example post</div>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+const items = [
+  { n: '01', t: 'Evidence stays honest', d: 'Guides separate what research supports from what is uncertain, and say plainly where the evidence is limited.' },
+  { n: '02', t: 'Built to use, not just to read', d: 'Frameworks, worksheets, checklists and reference tables turn ideas into decisions you can actually make.' },
+  { n: '03', t: 'One connected series', d: 'From how muscle grows to a structured 12-week plan, the twelve guides are designed to fit together.' },
+  { n: '04', t: 'Practical for real life', d: 'Flexible methods that adapt to your schedule, budget and food culture, instead of one rigid way to train or eat.' },
+];
+---
+<section class="section section--deep" id="why" aria-labelledby="why-title">
+  <div class="container">
+    <p class="eyebrow">Why IRONFUEL</p>
+    <h2 class="h2" id="why-title">Clear thinking. <em>Practical tools.</em></h2>
+    <div class="why__grid">
+      {items.map((i) => (
+        <div class="why-item reveal">
+          <span class="why-item__num" aria-hidden="true">{i.n}</span>
+          <div><h3>{i.t}</h3><p>{i.d}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

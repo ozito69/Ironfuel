@@ -1,0 +1,10 @@
+---
+// Launch-blocking placeholder. Preview builds show it highlighted; release builds FAIL while any exist.
+import { IS_RELEASE } from '../data/site';
+interface Props { what: string; kind?: 'missing' | 'verify' }
+const { what, kind = 'missing' } = Astro.props;
+if (IS_RELEASE) {
+  throw new Error(`RELEASE BLOCKED: unresolved ${kind === 'verify' ? 'unverified detail' : 'placeholder'}: ${what}`);
+}
+---
+<span class:list={['todo', kind === 'verify' && 'todo--verify']} data-todo={what}>[{kind === 'verify' ? 'VERIFY' : 'TODO'}: {what}]</span>

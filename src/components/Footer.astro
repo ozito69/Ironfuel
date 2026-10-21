@@ -1,0 +1,48 @@
+---
+import Wordmark from './Wordmark.astro';
+import Todo from './Todo.astro';
+import { links, brand, operator } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__about">
+        <Wordmark large href="/" />
+        <p>{brand.tagline} Evidence-aware fitness education in plain language.</p>
+      </div>
+      <nav class="footer__col" aria-label="Explore">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#guides">Educational Guides</a></li>
+          <li><a href="/#why">Why IRONFUEL</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col" aria-label="Find us">
+        <h2>Find IRONFUEL</h2>
+        <ul>
+          <li><a href={links.telegram} target="_blank" rel="noopener noreferrer">Telegram channel</a></li>
+          <li><a href={links.whopStore} target="_blank" rel="noopener noreferrer" data-utm>Whop store</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col" aria-label="Legal">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+          <li><a href="/disclaimer">Educational Disclaimer</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer__disclaimer">
+      IRONFUEL provides educational information only. It is not medical advice and does not replace advice from a doctor or another qualified professional. Results vary and are not guaranteed.
+      <a href="/disclaimer">Read the full disclaimer</a>.
+    </p>
+    <div class="footer__bottom">
+      <span>&copy; {year} {operator.legalEntity ?? <Todo what="legal entity name" />}</span>
+      <span>Contact: {operator.contactEmail ? <a href={`mailto:${operator.contactEmail}`}>{operator.contactEmail}</a> : operator.contactNote ?? <Todo what="public contact method (email or Telegram handle)" />}</span>
+    </div>
+  </div>
+</footer>
